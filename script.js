@@ -1033,16 +1033,35 @@ document.addEventListener('DOMContentLoaded', function () {
     if (document.getElementById('prevBtn')) document.getElementById('prevBtn').addEventListener('click', () => { stopCarousel(); goToSlide(currentSlide - 1); startCarousel(); });
     dots.forEach(dot => dot.addEventListener('click', function () { stopCarousel(); goToSlide(+this.getAttribute('data-index')); startCarousel(); }));
 
-    // Touch swipe
-    let touchStartX = 0;
-    const carouselEl = document.querySelector('.carousel-container');
-    if (carouselEl) {
-        carouselEl.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
-        carouselEl.addEventListener('touchend', e => {
-            const diff = touchStartX - e.changedTouches[0].screenX;
-            if (Math.abs(diff) > 50) { stopCarousel(); goToSlide(diff > 0 ? currentSlide + 1 : currentSlide - 1); startCarousel(); }
-        }, { passive: true });
-    }
+    // Touch swipe (corrigido para mobile)
+let touchStartX = 0, touchStartY = 0, touchStartTime = 0;
+if (carouselEl) {
+    carouselEl.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+        touchStartTime = Date.now();
+    }, { passive: true });
+
+    carouselEl.addEventListener('touchmove', e => {
+        const diffX = Math.abs(e.changedTouches[0].screenX - touchStartX);
+        const diffY = Math.abs(e.changedTouches[0].screenY - touchStartY);
+        // Só bloqueia scroll se o movimento for claramente horizontal
+        if (diffX > diffY && diffX > 10) e.preventDefault();
+    }, { passive: false });
+
+    carouselEl.addEventListener('touchend', e => {
+        const diffX = touchStartX - e.changedTouches[0].screenX;
+        const diffY = Math.abs(e.changedTouches[0].screenY - touchStartY);
+        const isHorizontal = Math.abs(diffX) > diffY && Math.abs(diffX) > 40;
+        
+        if (isHorizontal) {
+            stopCarousel();
+            goToSlide(diffX > 0 ? currentSlide + 1 : currentSlide - 1);
+            startCarousel();
+        }
+    }, { passive: true });
+}
+
     startCarousel();
 
     // ===== COUNTDOWN =====
