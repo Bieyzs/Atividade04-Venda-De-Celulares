@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TequíCell — Celulares e Tecnologia</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="header" id="header">
+        <div class="header-top">
+            <div class="container">
+                <p>Frete grátis para compras acima de R$ 499 | Parcelamento em até 12x sem juros</p>
+            </div>
+        </div>
+        <nav class="navbar">
+            <div class="container navbar-container">
+                <a href="index.html" class="logo">
+                    <svg width="4v2" height="42" viewBox="0 0 42 42" fill="none">
+                        <rect x="2" y="2" width="38" height="38" rx="10" fill="url(#lg1)" stroke="url(#lg2)" stroke-width="1.5"/>
+                        <path d="M14 11a1 1 0 011-1h12a1 1 0 011 1v20a1 1 0 01-1 1H15a1 1 0 01-1-1V11z" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+                        <line x1="18" y1="28" x2="24" y2="28" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+                        <circle cx="21" cy="24" r="1.5" fill="#fff"/>
+                        <path d="M17 14h8" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+                        <defs><linearGradient id="lg1" x1="2" y1="2" x2="40" y2="40"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#2563eb"/></linearGradient><linearGradient id="lg2" x1="2" y1="2" x2="40" y2="40"><stop stop-color="#a78bfa"/><stop offset="1" stop-color="#60a5fa"/></linearGradient></defs>
+                    </svg>
+                    <span class="logo-text">Tequí<span class="logo-accent">Cell</span></span>
+                </a>
+
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Buscar celulares, marcas, acessórios...">
+                    <button class="search-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="nav-actions">
+                    <button class="nav-btn" id="loginBtn">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        <span>Entrar</span>
+                    </button>
+                    <button class="nav-btn cart-btn" id="cartBtn">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/>
+                        </svg>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <span></span><span></span><span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <div class="nav-categories">
+            <div class="container">
+                <ul class="categories-list">
+                    <li><a href="#" class="cat-link active" data-category="all">Todos</a></li>
+                    <li><a href="#" class="cat-link" data-category="samsung">Samsung</a></li>
+                    <li><a href="#" class="cat-link" data-category="apple">Apple</a></li>
+                    <li><a href="#" class="cat-link" data-category="motorola">Motorola</a></li>
+                    <li><a href="#" class="cat-link" data-category="xiaomi">Xiaomi</a></li>
+                    <li><a href="#" class="cat-link" data-category="acessorios">Acessórios</a></li>
+                    <li><a href="#" class="cat-link" data-category="lancamentos">Lançamentos</a></li>
+                    <li><a href="#" class="cat-link" data-category="ofertas">Ofertas</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== MOBILE MENU ===== -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <span>Menu</span>
+            <button class="close-menu-btn" id="closeMenuBtn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </div>
+        <div class="mobile-search">
+            <input type="text" placeholder="Buscar produtos...">
+            <button><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+        </div>
+        <ul class="mobile-categories">
+            <li><a href="#" data-category="all">Todos os Produtos</a></li>
+            <li><a href="#" data-category="samsung">Samsung</a></li>
+            <li><a href="#" data-category="apple">Apple</a></li>
+            <li><a href="#" data-category="motorola">Motorola</a></li>
+            <li><a href="#" data-category="xiaomi">Xiaomi</a></li>
+            <li><a href="#" data-category="acessorios">Acessórios</a></li>
+            <li><a href="#" data-category="lancamentos">Lançamentos</a></li>
+            <li><a href="#" data-category="ofertas">Ofertas</a></li>
+        </ul>
+        <div class="mobile-menu-footer">
+            <button class="mobile-login-btn" id="mobileLoginBtn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                Entrar / Cadastrar
+            </button>
+        </div>
+    </div>
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <!-- ===== AUTH MODAL ===== -->
+    <div class="modal-overlay" id="authModal">
+        <div class="modal auth-modal">
+            <button class="modal-close" id="modalClose">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login">Entrar</button>
+                <button class="auth-tab" data-tab="register">Cadastrar</button>
+            </div>
+            <form class="auth-form active" id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">E-mail</label>
+                    <input type="email" id="loginEmail" placeholder="seu@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Senha</label>
+                    <div class="password-input">
+                        <input type="password" id="loginPassword" placeholder="Sua senha" required>
+                        <button type="button" class="toggle-password" data-target="loginPassword">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="form-options">
+                    <label class="checkbox-label"><input type="checkbox"> Lembrar-me</label>
+                    <a href="#" class="forgot-link">Esqueceu a senha?</a>
+                </div>
+                <button type="submit" class="btn-primary full-width">Entrar</button>
+                <div class="social-login">
+                    <p>Ou entre com</p>
+                    <div class="social-buttons">
+                        <button type="button" class="social-btn"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google</button>
+                        <button type="button" class="social-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> Facebook</button>
+                    </div>
+                </div>
+            </form>
+            <form class="auth-form" id="registerForm">
+                <div class="form-group"><label for="regName">Nome completo</label><input type="text" id="regName" placeholder="Seu nome completo" required></div>
+                <div class="form-group"><label for="regEmail">E-mail</label><input type="email" id="regEmail" placeholder="seu@email.com" required></div>
+                <div class="form-group"><label for="regPhone">Telefone</label><input type="tel" id="regPhone" placeholder="(11) 99999-9999"></div>
+                <div class="form-group"><label for="regPassword">Senha</label>
+                    <div class="password-input"><input type="password" id="regPassword" placeholder="Mínimo 8 caracteres" required>
+                        <button type="button" class="toggle-password" data-target="regPassword"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+                    </div>
+                    <div class="password-strength" id="passwordStrength"><div class="strength-bar"></div><span class="strength-text"></span></div>
+                </div>
+                <div class="form-group"><label for="regConfirmPassword">Confirmar Senha</label><input type="password" id="regConfirmPassword" placeholder="Repita a senha" required></div>
+                <label class="checkbox-label terms"><input type="checkbox" required> Aceito os <a href="#">Termos de Uso</a> e <a href="#">Política de Privacidade</a></label>
+                <button type="submit" class="btn-primary full-width">Criar Conta</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===== CART SIDEBAR ===== -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+                Meu Carrinho (<span id="cartItemCount">0</span>)
+            </h3>
+            <button class="cart-close" id="cartClose">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="cart-empty" id="cartEmpty">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+                <p>Seu carrinho está vazio</p>
+                <span>Adicione produtos para continuar</span>
+            </div>
+        </div>
+        <div class="cart-footer" id="cartFooter" style="display:none;">
+            <div class="cart-summary">
+                <div class="cart-subtotal"><span>Subtotal</span><span id="cartSubtotal">R$ 0,00</span></div>
+                <div class="cart-shipping"><span>Frete</span><span class="free-shipping">Grátis</span></div>
+                <div class="cart-total"><span>Total</span><span id="cartTotal">R$ 0,00</span></div>
+            </div>
+            <button class="btn-checkout">Finalizar Compra</button>
+            <button class="btn-clear-cart" id="clearCartBtn">Limpar Carrinho</button>
+        </div>
+    </div>
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <!-- ===== COMPARE MODAL ===== -->
+    <div class="modal-overlay" id="compareModal">
+        <div class="modal compare-modal">
+            <button class="modal-close" id="compareModalClose">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+            <h2>Comparar Produtos</h2>
+            <p class="compare-subtitle">Selecione até 3 produtos para comparar</p>
+            <div class="compare-selected" id="compareSelected">
+                <div class="compare-empty-msg">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/><polyline points="15 18 9 12 15 6"/></svg>
+                    <p>Clique em "Comparar" nos produtos para adicioná-los aqui</p>
+                </div>
+            </div>
+            <div class="compare-table-wrapper" id="compareTableWrapper" style="display:none;">
+                <table class="compare-table" id="compareTable"></table>
+            </div>
+            <button class="btn-primary full-width compare-action-btn" id="compareActionBtn" style="display:none;">Comparar Agora</button>
+        </div>
+    </div>
+
+    <!-- ===== HERO CAROUSEL ===== -->
+    <section class="hero-carousel" id="heroCarousel">
+        <div class="carousel-container">
+            <div class="carousel-track" id="carouselTrack">
+                <div class="carousel-slide active" style="background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);">
+                    <div class="container slide-content">
+                        <div class="slide-text">
+                            <span class="slide-badge">Novidade</span>
+                            <h1>iPhone 16 Pro Max</h1>
+                            <p>Chip A18 Pro. Câmera de 48MP. Tela Super Retina XDR de 6,9 polegadas. O iPhone mais avançado de todos os tempos.</p>
+                            <div class="slide-price">
+                                <span class="old-price">R$ 10.499</span>
+                                <span class="current-price">R$ 8.999</span>
+                                <span class="installment">ou 12x de R$ 749,92</span>
+                            </div>
+                            <div class="slide-buttons">
+                                <button class="btn-primary btn-lg" onclick="window.location.href='product.html?id=iphone16promax'">Comprar Agora</button>
+                                <button class="btn-outline btn-lg" id="botao">Ver Detalhes</button>
+                            </div>
+                        </div>
+                        <div class="slide-image">
+                            <svg width="220" height="380" viewBox="0 0 220 380" fill="none">
+                                <defs><linearGradient id="iphoneGrad" x1="0" y1="0" x2="220" y2="380"><stop stop-color="#1a1a2e"/><stop offset="1" stop-color="#2d2d4a"/></linearGradient><linearGradient id="screenGrad1" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#667eea" stop-opacity="0.4"/><stop offset="1" stop-color="#764ba2" stop-opacity="0.1"/></linearGradient></defs>
+                                <rect x="20" y="15" width="180" height="350" rx="32" fill="url(#iphoneGrad)" stroke="#4a4a6a" stroke-width="2"/>
+                                <rect x="32" y="45" width="156" height="290" rx="6" fill="#0f0f23"/>
+                                <rect x="32" y="45" width="156" height="290" rx="6" fill="url(#screenGrad1)"/>
+                                <rect x="85" y="25" width="50" height="10" rx="5" fill="#2a2a4a"/>
+                                <circle cx="98" cy="30" r="4" fill="#3a3a5a"/><circle cx="122" cy="30" r="4" fill="#3a3a5a"/>
+                                <circle cx="110" cy="355" r="10" stroke="#4a4a6a" stroke-width="1.5" fill="none"/>
+                                <text x="110" y="180" text-anchor="middle" fill="#fff" font-family="Inter" font-size="16" font-weight="700">iPhone 16</text>
+                                <text x="110" y="205" text-anchor="middle" fill="#a0a0c0" font-family="Inter" font-size="12">Pro Max</text>
+                                <rect x="40" y="55" width="140" height="270" rx="4" fill="url(#screenGrad1)"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-slide" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);">
+                    <div class="container slide-content">
+                        <div class="slide-text">
+                            <span class="slide-badge" style="background: linear-gradient(135deg, #00d2ff, #3a7bd5);">Oferta Especial</span>
+                            <h1>Samsung Galaxy S25 Ultra</h1>
+                            <p>Processador Snapdragon 8 Elite. Câmera de 200MP. S Pen integrada. Tela Dynamic AMOLED 2X de 6,9 polegadas.</p>
+                            <div class="slide-price">
+                                <span class="old-price">R$ 9.999</span>
+                                <span class="current-price">R$ 7.499</span>
+                                <span class="installment">ou 12x de R$ 624,92</span>
+                            </div>
+                            <div class="slide-buttons">
+                                <button class="btn-primary btn-lg" onclick="window.location.href='product.html?id=s25ultra'">Comprar Agora</button>
+                                <button class="btn-outline btn-lg">Ver Detalhes</button>
+                            </div>
+                        </div>
+                        <div class="slide-image">
+                            <svg width="220" height="380" viewBox="0 0 220 380" fill="none">
+                                <defs><linearGradient id="samsungGrad" x1="0" y1="0" x2="220" y2="380"><stop stop-color="#1a1a2e"/><stop offset="1" stop-color="#1a2a4e"/></linearGradient><linearGradient id="screenGrad2" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#00d2ff" stop-opacity="0.3"/><stop offset="1" stop-color="#3a7bd5" stop-opacity="0.1"/></linearGradient></defs>
+                                <rect x="20" y="15" width="180" height="350" rx="30" fill="url(#samsungGrad)" stroke="#3a5a8a" stroke-width="2"/>
+                                <rect x="32" y="45" width="156" height="290" rx="6" fill="#0f0f23"/>
+                                <rect x="32" y="45" width="156" height="290" rx="6" fill="url(#screenGrad2)"/>
+                                <circle cx="110" cy="28" r="5" fill="#2a3a5a"/>
+                                <circle cx="110" cy="355" r="10" stroke="#3a5a8a" stroke-width="1.5" fill="none"/>
+                                <text x="110" y="180" text-anchor="middle" fill="#fff" font-family="Inter" font-size="15" font-weight="700">Galaxy S25</text>
+                                <text x="110" y="205" text-anchor="middle" fill="#a0b0d0" font-family="Inter" font-size="12">Ultra</text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-slide" style="background: linear-gradient(135deg, #1b1b2f 0%, #2d2d4a 50%, #1a1a3e 100%);">
+                    <div class="container slide-content">
+                        <div class="slide-text">
+                            <span class="slide-badge" style="background: linear-gradient(135deg, #f093fb, #f5576c);">Lançamento</span>
+                            <h1>Motorola Edge 50 Ultra</h1>
+                            <p>Câmera Pantone Validated. Tela pOLED de 6,7 polegadas. Design premium em couro vegano. Carregamento de 125W.</p>
+                            <div class="slide-price">
+                                <span class="old-price">R$ 6.999</span>
+                                <span class="current-price">R$ 5.299</span>
+                                <span class="installment">ou 12x de R$ 441,58</span>
+                            </div>
+                            <div class="slide-buttons">
+                                <button class="btn-primary btn-lg" onclick="window.location.href='product.html?id=edge50ultra'">Comprar Agora</button>
+                                <button class="btn-outline btn-lg">Ver Detalhes</button>
+                            </div>
+                        </div>
+                        <div class="slide-image">
+                            <svg width="220" height="380" viewBox="0 0 220 380" fill="none">
+                                <defs><linearGradient id="motoGrad" x1="0" y1="0" x2="220" y2="380"><stop stop-color="#1a1a2e"/><stop offset="1" stop-color="#2a1a3e"/></linearGradient><linearGradient id="screenGrad3" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f093fb" stop-opacity="0.3"/><stop offset="1" stop-color="#f5576c" stop-opacity="0.1"/></linearGradient></defs>
+                                <rect x="20" y="15" width="180" height="350" rx="30" fill="url(#motoGrad)" stroke="#5a3a6a" stroke-width="2"/>
+                                <rect x="32" y="45" width="156" height="290" rx="6" fill="#0f0f23"/>
+                                <rect x="32" y="45" width="156" height="290" rx="6" fill="url(#screenGrad3)"/>
+                                <circle cx="110" cy="28" r="5" fill="#4a3a5a"/>
+                                <circle cx="110" cy="355" r="10" stroke="#5a3a6a" stroke-width="1.5" fill="none"/>
+                                <text x="110" y="180" text-anchor="middle" fill="#fff" font-family="Inter" font-size="15" font-weight="700">Edge 50</text>
+                                <text x="110" y="205" text-anchor="middle" fill="#c0a0d0" font-family="Inter" font-size="12">Ultra</text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-btn prev-btn" id="prevBtn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button class="carousel-btn next-btn" id="nextBtn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+            <div class="carousel-dots" id="carouselDots">
+                <button class="dot active" data-index="0"></button>
+                <button class="dot" data-index="1"></button>
+                <button class="dot" data-index="2"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROMO BANNER ===== -->
+    <section class="promo-banner">
+        <div class="container">
+            <div class="promo-grid">
+                <div class="promo-card">
+                    <div class="promo-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+                    <div><h4>Frete Grátis</h4><p>Para todo o Brasil</p></div>
+                </div>
+                <div class="promo-card">
+                    <div class="promo-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M7 15h0M2 9h20"/><path d="M12 15h5"/></svg></div>
+                    <div><h4>Parcelamento</h4><p>Até 12x sem juros</p></div>
+                </div>
+                <div class="promo-card">
+                    <div class="promo-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                    <div><h4>Garantia</h4><p>1 ano de fábrica</p></div>
+                </div>
+                <div class="promo-card">
+                    <div class="promo-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+                    <div><h4>Melhor Preço</h4><p>Garantido</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FLASH DEALS ===== -->
+    <section class="flash-deals">
+        <br>
+        <div class="container">
+            <div class="section-header">
+                <div class="section-title">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#flashGrad)" stroke-width="2" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/><defs><linearGradient id="flashGrad" x1="3" y1="2" x2="21" y2="22"><stop stop-color="#FFD700"/><stop offset="1" stop-color="#FF6B00"/></linearGradient></defs></svg>
+                    <h2>Ofertas Relâmpago</h2>
+                    <br>
+                    <div class="countdown" id="countdown">
+                        <div class="countdown-item"><span class="countdown-value" id="hours">08</span><span class="countdown-label">h</span></div>
+                        <span class="countdown-sep">:</span>
+                        <div class="countdown-item"><span class="countdown-value" id="minutes">45</span><span class="countdown-label">m</span></div>
+                        <span class="countdown-sep">:</span>
+                        <div class="countdown-item"><span class="countdown-value" id="seconds">30</span><span class="countdown-label">s</span></div>
+                    </div>
+                </div>
+                <a href="#" class="see-all">Ver todas <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+            </div>
+            <div class="products-grid" id="flashDealsGrid"></div>
+        </div>
+    </section>
+
+    <!-- ===== CATEGORIES ===== -->
+    <section class="categories-section">
+        <div class="container">
+            <div class="section-header" style="flex-direction:column;align-items:center;text-align:center;">
+                <h2>Explore por Categoria</h2>
+                <p>Encontre o smartphone ideal para você</p>
+            </div>
+            <div class="categories-grid">
+                <div class="category-card" data-category="samsung"><div class="category-icon samsung-icon"><svg width="40" height="40" viewBox="0 0 40 40"><text x="8" y="28" font-family="Inter" font-size="16" font-weight="700" fill="#fff">S</text></svg></div><h3>Samsung</h3><span>42 produtos</span></div>
+                <div class="category-card" data-category="apple"><div class="category-icon apple-icon"><svg width="40" height="40" viewBox="0 0 40 40"><path d="M20 8c-1.5 0-3 1-3.5 2.5-.5 1.5-.5 3 0 4.5C17 16.5 18.5 17.5 20 17.5s3-1 3.5-2.5c.5-1.5.5-3 0-4.5C23 9 21.5 8 20 8z" fill="#fff" opacity="0.8"/></svg></div><h3>Apple</h3><span>38 produtos</span></div>
+                <div class="category-card" data-category="motorola"><div class="category-icon motorola-icon"><svg width="40" height="40" viewBox="0 0 40 40"><path d="M10 28V12l5 8 5-8 5 8 5-8v16" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Motorola</h3><span>35 produtos</span></div>
+                <div class="category-card" data-category="xiaomi"><div class="category-icon xiaomi-icon"><svg width="40" height="40" viewBox="0 0 40 40"><rect x="10" y="10" width="20" height="20" rx="4" stroke="#fff" stroke-width="2" fill="none"/><text x="20" y="24" text-anchor="middle" font-family="Inter" font-size="11" font-weight="700" fill="#fff">MI</text></svg></div><h3>Xiaomi</h3><span>56 produtos</span></div>
+                <div class="category-card" data-category="acessorios"><div class="category-icon acessorios-icon"><svg width="40" height="40" viewBox="0 0 40 40"><rect x="12" y="8" width="16" height="24" rx="3" stroke="#fff" stroke-width="2" fill="none"/><line x1="18" y1="26" x2="22" y2="26" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div><h3>Acessórios</h3><span>120 produtos</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ALL PRODUCTS ===== -->
+    <section class="all-products" id="allProducts">
+        <div class="container">
+            <div class="section-header">
+                <h2>Todos os Produtos</h2>
+            </div>
+            <div class="products-grid" id="allProductsGrid"></div>
+        </div>
+    </section>
+
+    <!-- ===== LAUNCHES ===== -->
+    <section class="launches">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-title">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#launchGrad)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="url(#launchGrad)"/><defs><linearGradient id="launchGrad" x1="2" y1="2" x2="22" y2="22"><stop stop-color="#00d2ff"/><stop offset="1" stop-color="#3a7bd5"/></linearGradient></defs></svg>
+                    <h2>Lançamentos</h2>
+                </div>
+                <a href="#" class="see-all">Ver todos <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+            </div>
+            <div class="launches-grid" id="launchesGrid"></div>
+        </div>
+    </section>
+
+    <!-- ===== REVIEWS ===== -->
+    <section class="reviews-section">
+        <div class="container">
+            <div class="section-header" style="flex-direction:column;align-items:center;text-align:center;">
+                <h2>O que nossos clientes dizem</h2>
+                <p>Avaliações reais de compradores verificados</p>
+            </div>
+            <div class="reviews-carousel" id="reviewsCarousel">
+                <div class="reviews-track" id="reviewsTrack">
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-avatar"><svg width="44" height="44" viewBox="0 0 44 44"><circle cx="22" cy="22" r="22" fill="url(#av1)"/><circle cx="22" cy="18" r="8" fill="#fff" opacity="0.9"/><path d="M6 40c0-7 7-13 16-13s16 6 16 13" fill="#fff" opacity="0.9"/><defs><linearGradient id="av1" x1="0" y1="0" x2="44" y2="44"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#2563eb"/></linearGradient></defs></svg></div>
+                            <div class="review-meta"><h4>Carlos Silva</h4><div class="review-stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div></div>
+                            <span class="verified-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Compra verificada</span>
+                        </div>
+                        <p class="review-text">"Comprei o Galaxy S24 Ultra e estou impressionado com a qualidade da câmera. O atendimento da TequíCell foi excelente, entrega rápida e produto lacrado. Recomendo demais!"</p>
+                        <span class="review-product">Galaxy S24 Ultra 256GB</span>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-avatar"><svg width="44" height="44" viewBox="0 0 44 44"><circle cx="22" cy="22" r="22" fill="url(#av2)"/><circle cx="22" cy="18" r="8" fill="#fff" opacity="0.9"/><path d="M6 40c0-7 7-13 16-13s16 6 16 13" fill="#fff" opacity="0.9"/><defs><linearGradient id="av2" x1="0" y1="0" x2="44" y2="44"><stop stop-color="#f093fb"/><stop offset="1" stop-color="#f5576c"/></linearGradient></defs></svg></div>
+                            <div class="review-meta"><h4>Ana Oliveira</h4><div class="review-stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div></div>
+                            <span class="verified-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Compra verificada</span>
+                        </div>
+                        <p class="review-text">"O iPhone 16 Pro superou minhas expectativas. A bateria dura o dia todo e as fotos ficam perfeitas. O site é muito fácil de navegar e o suporte respondeu todas as minhas dúvidas."</p>
+                        <span class="review-product">iPhone 16 Pro 256GB</span>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-avatar"><svg width="44" height="44" viewBox="0 0 44 44"><circle cx="22" cy="22" r="22" fill="url(#av3)"/><circle cx="22" cy="18" r="8" fill="#fff" opacity="0.9"/><path d="M6 40c0-7 7-13 16-13s16 6 16 13" fill="#fff" opacity="0.9"/><defs><linearGradient id="av3" x1="0" y1="0" x2="44" y2="44"><stop stop-color="#00d2ff"/><stop offset="1" stop-color="#3a7bd5"/></linearGradient></defs></svg></div>
+                            <div class="review-meta"><h4>Rafael Santos</h4><div class="review-stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#666"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div></div>
+                            <span class="verified-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Compra verificada</span>
+                        </div>
+                        <p class="review-text">"O Motorola Edge 40 Neo é um excelente custo-benefício. Tela linda, câmera boa e o design em couro vegano é sofisticado. Chegou em 2 dias, muito rápido!"</p>
+                        <span class="review-product">Motorola Edge 40 Neo 256GB</span>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-avatar"><svg width="44" height="44" viewBox="0 0 44 44"><circle cx="22" cy="22" r="22" fill="url(#av4)"/><circle cx="22" cy="18" r="8" fill="#fff" opacity="0.9"/><path d="M6 40c0-7 7-13 16-13s16 6 16 13" fill="#fff" opacity="0.9"/><defs><linearGradient id="av4" x1="0" y1="0" x2="44" y2="44"><stop stop-color="#FFD700"/><stop offset="1" stop-color="#FF6B00"/></linearGradient></defs></svg></div>
+                            <div class="review-meta"><h4>Juliana Costa</h4><div class="review-stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FFD700"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div></div>
+                            <span class="verified-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Compra verificada</span>
+                        </div>
+                        <p class="review-text">"Já é a terceira vez que compro na TequíCell. Sempre com os melhores preços e promoções imperdíveis. O Xiaomi 14 Ultra é uma máquina de fotos!"</p>
+                        <span class="review-product">Xiaomi 14 Ultra 512GB</span>
+                    </div>
+                </div>
+                <div class="reviews-nav">
+                    <button class="review-nav-btn" id="prevReview"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+                    <button class="review-nav-btn" id="nextReview"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== NEWSLETTER ===== -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h2>Receba as melhores ofertas</h2>
+                    <p>Cadastre-se e ganhe 10% de desconto na primeira compra</p>
+                </div>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Digite seu melhor e-mail" required>
+                    <button type="submit" class="btn-primary">Cadastrar</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">
+                        <svg width="36" height="36" viewBox="0 0 42 42" fill="none"><rect x="2" y="2" width="38" height="38" rx="10" fill="url(#lg1)" stroke="url(#lg2)" stroke-width="1.5"/><path d="M14 11a1 1 0 011-1h12a1 1 0 011 1v20a1 1 0 01-1 1H15a1 1 0 01-1-1V11z" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><line x1="18" y1="28" x2="24" y2="28" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><circle cx="21" cy="24" r="1.5" fill="#fff"/><path d="M17 14h8" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+                        <span>Tequí<span class="logo-accent">Cell</span></span>
+                    </a>
+                    <p>Sua loja de confiança para smartphones e tecnologia. Produtos originais com garantia e os melhores preços do mercado.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><svg width="20" height="20" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                        <a href="#" class="social-link"><svg width="20" height="20" viewBox="0 0 24 24" fill="#E4405F"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                        <a href="#" class="social-link"><svg width="20" height="20" viewBox="0 0 24 24" fill="#1DA1F2"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg></a>
+                    </div>
+                </div>
+                <div class="footer-col"><h4>Categorias</h4><ul><li><a href="#">Samsung</a></li><li><a href="#">Apple</a></li><li><a href="#">Motorola</a></li><li><a href="#">Xiaomi</a></li><li><a href="#">Acessórios</a></li><li><a href="#">Lançamentos</a></li></ul></div>
+                <div class="footer-col"><h4>Atendimento</h4><ul><li><a href="#">Central de Ajuda</a></li><li><a href="#">Trocas e Devoluções</a></li><li><a href="#">Rastrear Pedido</a></li><li><a href="#">Política de Privacidade</a></li><li><a href="#">Termos de Uso</a></li></ul></div>
+                <div class="footer-col"><h4>Contato</h4><ul class="contact-list">
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg> (61) 99403-9698</li>
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> barrosodesouzagabriel@gmail.com</li>
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Brasília - Df — Brasil</li>
+                </ul></div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 TequíCell. Todos os direitos reservados.</p>
+                <p>Desenvolvido por Gabriel Barroso De Souza</p>
+                <div class="payment-methods">
+                    <svg width="42" height="28" viewBox="0 0 42 28"><rect width="42" height="28" rx="5" fill="#1a1a2e" stroke="#333" stroke-width="0.5"/><text x="21" y="17" text-anchor="middle" fill="#aaa" font-size="8" font-family="Inter" font-weight="600">VISA</text></svg>
+                    <svg width="42" height="28" viewBox="0 0 42 28"><rect width="42" height="28" rx="5" fill="#1a1a2e" stroke="#333" stroke-width="0.5"/><text x="21" y="17" text-anchor="middle" fill="#aaa" font-size="7" font-family="Inter" font-weight="600">MASTER</text></svg>
+                    <svg width="42" height="28" viewBox="0 0 42 28"><rect width="42" height="28" rx="5" fill="#1a1a2e" stroke="#333" stroke-width="0.5"/><text x="21" y="17" text-anchor="middle" fill="#32BCAD" font-size="9" font-family="Inter" font-weight="700">PIX</text></svg>
+                    <svg width="42" height="28" viewBox="0 0 42 28"><rect width="42" height="28" rx="5" fill="#1a1a2e" stroke="#333" stroke-width="0.5"/><text x="21" y="17" text-anchor="middle" fill="#aaa" font-size="7" font-family="Inter" font-weight="600">BOLETO</text></svg>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== BACK TO TOP ===== -->
+    <button class="back-to-top" id="backToTop">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
